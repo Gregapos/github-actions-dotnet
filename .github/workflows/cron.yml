@@ -1,0 +1,14 @@
+name: Run every 5 minutes
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  build:
+    name: Run every 5 minutes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hello world
+        run: echo "Hello World!"
