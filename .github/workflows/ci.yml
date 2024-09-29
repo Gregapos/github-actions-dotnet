@@ -27,3 +27,20 @@ jobs:
         with:
           name: artifacts
           path: artifacts/
+
+  deploy_dev:
+    name: Deploy Dev
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: artifacts
+          path: artifacts/
+
+      - name: "Deploy to Azure App Service"
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+          package: artifacts/
