@@ -35,15 +35,19 @@ jobs:
   deploy_dev:
     name: Deploy Dev
     needs: build
-    uses: Gregapos/github-actions-reusable-workflows/.github/workflows/step-azure-app-service-deploy.yml@main
+    uses: ./.github/workflows/step-deploy.yml
     with:
       env: dev
+      resource_group_name: rg_dometrain_dev
+      app_service_name: app-dometrain-github-actions-gregapos-dev
     secrets: inherit
 
   deploy_prod:
     name: Deploy Prod
     needs: deploy_dev
-    uses: Gregapos/github-actions-reusable-workflows/.github/workflows/step-azure-app-service-deploy.yml@main
+    uses: ./.github/workflows/step-deploy.yml
     with:
       env: prod
+      resource_group_name: rg_dometrain_prod
+      app_service_name: app-dometrain-github-actions-gregapos-prod
     secrets: inherit
