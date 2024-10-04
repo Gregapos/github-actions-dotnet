@@ -38,7 +38,7 @@ jobs:
     uses: ./.github/workflows/step-deploy.yml
     with:
       env: dev
-      resource_group_name: rg_dometrain_dev
+      resource_group_name: rg-dometrain-dev
       app_service_name: app-dometrain-github-actions-gregapos-dev
     secrets: inherit
 
@@ -48,6 +48,6 @@ jobs:
     uses: ./.github/workflows/step-deploy.yml
     with:
       env: prod
-      resource_group_name: rg_dometrain_prod
+      resource_group_name: rg-dometrain-prod
       app_service_name: app-dometrain-github-actions-gregapos-prod
     secrets: inherit
